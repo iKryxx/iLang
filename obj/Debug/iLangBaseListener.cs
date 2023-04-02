@@ -262,6 +262,19 @@ public partial class iLangBaseListener : IiLangListener {
 	public virtual void ExitAssignment([NotNull] iLangParser.AssignmentContext context) { }
 
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="iLangParser.function"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterFunction([NotNull] iLangParser.FunctionContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="iLangParser.function"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitFunction([NotNull] iLangParser.FunctionContext context) { }
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="iLangParser.functionCall"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -286,6 +299,19 @@ public partial class iLangBaseListener : IiLangListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitExpression([NotNull] iLangParser.ExpressionContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="iLangParser.functionExpression"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterFunctionExpression([NotNull] iLangParser.FunctionExpressionContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="iLangParser.functionExpression"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitFunctionExpression([NotNull] iLangParser.FunctionExpressionContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="iLangParser.multOp"/>.

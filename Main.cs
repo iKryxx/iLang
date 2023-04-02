@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+bool runInTest = (args == null || args.Length == 0);
 
+if(runInTest) Console.WriteLine("This is a Test Run becuase no arguments were passed when executing the program.");
 
-var fileName = "Content/test.iks";
+var fileName = runInTest ? "Content/test.iks" : args[0];
 
 var fileContents = File.ReadAllText(fileName);
 

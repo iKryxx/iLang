@@ -50,6 +50,16 @@ public class iLangVisitor:iLangBaseVisitor<object?>
 
         return null;
     }
+    public override object VisitFunction([NotNull] iLangParser.FunctionContext context)
+    {
+        var funName = context.IDENTIFIER().GetText();
+
+        var funArgs = context.functionExpression().Select(Visit).ToArray();
+
+        var funBlock = Visit(context.block());
+
+        return null;//Variables[funName] = new Func<object?[], object?>(funBlock);
+    }
     public override object? VisitConstant([NotNull] iLangParser.ConstantContext context)
     {
         //Console.WriteLine(context.GetText());

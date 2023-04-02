@@ -16,6 +16,8 @@ WHILE: 'while' | 'until';
 
 assignment: IDENTIFIER '=' expression;
 
+function: constant? IDENTIFIER '(' (functionExpression (',' functionExpression)*)? ')' block;
+
 functionCall: IDENTIFIER '(' (expression (',' expression)*)? ')'; //consists of an Identifier that can hold zero or more expressions in them
 
 expression
@@ -28,6 +30,10 @@ expression
     | expression addOp expression           #additiveExpression
     | expression compareOp expression       #comparisonExpression
     | expression boolOp expression          #booleanExpression
+    ;
+
+functionExpression
+    : constant? IDENTIFIER
     ;
 
 multOp: '*' | '/' | '%';

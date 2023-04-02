@@ -226,6 +226,17 @@ public interface IiLangListener : IParseTreeListener {
 	void ExitAssignment([NotNull] iLangParser.AssignmentContext context);
 
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="iLangParser.function"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFunction([NotNull] iLangParser.FunctionContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="iLangParser.function"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFunction([NotNull] iLangParser.FunctionContext context);
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="iLangParser.functionCall"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -246,6 +257,17 @@ public interface IiLangListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitExpression([NotNull] iLangParser.ExpressionContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="iLangParser.functionExpression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFunctionExpression([NotNull] iLangParser.FunctionExpressionContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="iLangParser.functionExpression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFunctionExpression([NotNull] iLangParser.FunctionExpressionContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="iLangParser.multOp"/>.

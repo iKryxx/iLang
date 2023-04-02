@@ -154,6 +154,13 @@ public interface IiLangVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitAssignment([NotNull] iLangParser.AssignmentContext context);
 
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="iLangParser.function"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitFunction([NotNull] iLangParser.FunctionContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="iLangParser.functionCall"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -166,6 +173,13 @@ public interface IiLangVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitExpression([NotNull] iLangParser.ExpressionContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="iLangParser.functionExpression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitFunctionExpression([NotNull] iLangParser.FunctionExpressionContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="iLangParser.multOp"/>.
