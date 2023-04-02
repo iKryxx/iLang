@@ -1,0 +1,6 @@
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\iLangLexer.cs
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\iLangParser.cs
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\iLangListener.cs
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\iLangBaseListener.cs
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\iLangVisitor.cs
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\iLangBaseVisitor.cs

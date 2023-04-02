@@ -1,0 +1,27 @@
+﻿i = 14;
+
+Write("Math Tests: ");
+Write("14+7 = ",14+7);
+Write("14-7 = ",14-7);
+Write("14*7 = ",14*7);
+Write("14/7 = ",14/7);
+Write("14%7 = ",14%7);
+Write("14*(3+4) = ", 28*(3+4)/2);
+Write();
+Write("Loop Test:");
+j=1;
+until j == 10{
+	Write(j);
+	j = j + 1;
+}
+
+Write();
+Write("If Tests:");
+if j == 11 xor i == 14{
+	Write("So Bad");
+} else if j == 10{
+	Write("So Good");
+}
+if j != 1{
+ Write("So Good Too");
+}

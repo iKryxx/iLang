@@ -1,0 +1,38 @@
+C:\Users\User\source\repos\Own Language\obj\Debug\Own Language.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\Own Language\obj\Debug\Own Language.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\source\repos\Own Language\obj\Debug\Own Language.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Own Language\bin\Debug\Content\test.iks
+C:\Users\User\source\repos\Own Language\bin\Debug\Own Language.exe.config
+C:\Users\User\source\repos\Own Language\bin\Debug\Own Language.exe
+C:\Users\User\source\repos\Own Language\bin\Debug\Own Language.pdb
+C:\Users\User\source\repos\Own Language\bin\Debug\Antlr4.Runtime.dll
+C:\Users\User\source\repos\Own Language\bin\Debug\Antlr4.Runtime.xml
+C:\Users\User\source\repos\Own Language\obj\Debug\Own Language.csproj.CopyComplete
+C:\Users\User\source\repos\Own Language\obj\Debug\Own Language.exe
+C:\Users\User\source\repos\Own Language\obj\Debug\Own Language.pdb
+C:\Users\User\source\repos\Own Language\obj\Debug\Own Language.csproj.Antlr4GeneratedCodeFileListAbsolute.txt
+C:\Users\User\source\repos\Own Language\obj\Debug\iLangLexer.cs
+C:\Users\User\source\repos\Own Language\obj\Debug\iLangParser.cs
+C:\Users\User\source\repos\Own Language\obj\Debug\iLangListener.cs
+C:\Users\User\source\repos\Own Language\obj\Debug\iLangBaseListener.cs
+C:\Users\User\source\repos\Own Language\obj\Debug\iLangVisitor.cs
+C:\Users\User\source\repos\Own Language\obj\Debug\iLangBaseVisitor.cs
+C:\Users\maiks\Documents\JanikGames\Own Language\bin\Debug\Content\test.iks
+C:\Users\maiks\Documents\JanikGames\Own Language\bin\Debug\Own Language.exe.config
+C:\Users\maiks\Documents\JanikGames\Own Language\bin\Debug\Own Language.exe
+C:\Users\maiks\Documents\JanikGames\Own Language\bin\Debug\Own Language.pdb
+C:\Users\maiks\Documents\JanikGames\Own Language\bin\Debug\Antlr4.Runtime.dll
+C:\Users\maiks\Documents\JanikGames\Own Language\bin\Debug\Antlr4.Runtime.xml
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\Own Language.csproj.AssemblyReference.cache
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\Own Language.csproj.SuggestedBindingRedirects.cache
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\iLangLexer.cs
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\iLangParser.cs
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\iLangListener.cs
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\iLangBaseListener.cs
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\iLangVisitor.cs
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\iLangBaseVisitor.cs
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\Own Language.csproj.Antlr4GeneratedCodeFileListAbsolute.txt
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\Own Language.csproj.CoreCompileInputs.cache
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\Own Language.csproj.CopyComplete
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\Own Language.exe
+C:\Users\maiks\Documents\JanikGames\Own Language\obj\Debug\Own Language.pdb
