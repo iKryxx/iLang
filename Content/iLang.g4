@@ -4,7 +4,7 @@ program: line* EOF; //this defines how a program is built (lines, * is saying 0 
 
 line: statement | ifBlock | whileBlock; //whats a Line? its either a statement, an ifBlock or a whileBlock (| is the syntax for 'or'
 
-statement: (assignment | functionCall) ';'; //whats a statement? its either an assignment or a function Call, followed by a semicolon
+statement: (assignment | functionCall | functionAssignment) ';'; //whats a statement? its either an assignment or a function Call, followed by a semicolon
 
 ifBlock: 'if' expression block ('else' elseIfBlock)?; //whats an ifBlock? its triggered when writing 'if' followed by the expression and the block. optionally (labeled with '?'), an 'else' can follow with an else block
 
@@ -16,7 +16,7 @@ WHILE: 'while' | 'until';
 
 assignment: IDENTIFIER '=' expression;
 
-function: constant? IDENTIFIER '(' (functionExpression (',' functionExpression)*)? ')' block;
+functionAssignment: constant? IDENTIFIER '(' (functionExpression (',' functionExpression)*)? ')' block;
 
 functionCall: IDENTIFIER '(' (expression (',' expression)*)? ')'; //consists of an Identifier that can hold zero or more expressions in them
 
@@ -46,7 +46,7 @@ BOOL_OPERATOR: 'and' | 'or' | 'xor' ;
 constant: INTEGER | FLOAT | STRING | BOOL | NULL;
 
 INTEGER: ([1-9][0-9]*) | [0];
-FLOAT: ([1-9][0-9]* ',' [0-9]*) | [0];
+FLOAT: ([1-9][0-9]* '.' [0-9]*)'f' | [0]'f';
 STRING: ('"' ~'"'* '"') | ('\'' ~'\''* '\'');
 BOOL: 'true' | 'false';
 NULL: 'null';

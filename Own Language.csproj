@@ -47,6 +47,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynLin.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="iLangVisitor.cs" />
   </ItemGroup>
@@ -70,6 +71,6 @@
   </Target>
   <Import Project="packages\Antlr4.CodeGenerator.4.6.6\build\Antlr4.CodeGenerator.targets" Condition="Exists('packages\Antlr4.CodeGenerator.4.6.6\build\Antlr4.CodeGenerator.targets')" />
   <PropertyGroup>
-	  <Antlr4UseCSharpGenerator>True</Antlr4UseCSharpGenerator>
+    <Antlr4UseCSharpGenerator>True</Antlr4UseCSharpGenerator>
   </PropertyGroup>
 </Project>

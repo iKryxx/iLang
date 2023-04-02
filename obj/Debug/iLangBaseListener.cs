@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\maiks\Documents\JanikGames\Own Language\Content\iLang.g4 by ANTLR 4.6.6
+// Generated from C:\Users\User\Source\Repos\iKryxx\Own-Language\Content\iLang.g4 by ANTLR 4.6.6
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -262,17 +262,17 @@ public partial class iLangBaseListener : IiLangListener {
 	public virtual void ExitAssignment([NotNull] iLangParser.AssignmentContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="iLangParser.function"/>.
+	/// Enter a parse tree produced by <see cref="iLangParser.functionAssignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterFunction([NotNull] iLangParser.FunctionContext context) { }
+	public virtual void EnterFunctionAssignment([NotNull] iLangParser.FunctionAssignmentContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="iLangParser.function"/>.
+	/// Exit a parse tree produced by <see cref="iLangParser.functionAssignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitFunction([NotNull] iLangParser.FunctionContext context) { }
+	public virtual void ExitFunctionAssignment([NotNull] iLangParser.FunctionAssignmentContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="iLangParser.functionCall"/>.

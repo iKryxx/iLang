@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\maiks\Documents\JanikGames\Own Language\Content\iLang.g4 by ANTLR 4.6.6
+// Generated from C:\Users\User\Source\Repos\iKryxx\Own-Language\Content\iLang.g4 by ANTLR 4.6.6
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -154,11 +154,11 @@ public interface IiLangVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitAssignment([NotNull] iLangParser.AssignmentContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="iLangParser.function"/>.
+	/// Visit a parse tree produced by <see cref="iLangParser.functionAssignment"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitFunction([NotNull] iLangParser.FunctionContext context);
+	Result VisitFunctionAssignment([NotNull] iLangParser.FunctionAssignmentContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="iLangParser.functionCall"/>.

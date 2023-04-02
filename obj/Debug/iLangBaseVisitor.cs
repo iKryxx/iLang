@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\maiks\Documents\JanikGames\Own Language\Content\iLang.g4 by ANTLR 4.6.6
+// Generated from C:\Users\User\Source\Repos\iKryxx\Own-Language\Content\iLang.g4 by ANTLR 4.6.6
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -220,7 +220,7 @@ public partial class iLangBaseVisitor<Result> : AbstractParseTreeVisitor<Result>
 	public virtual Result VisitAssignment([NotNull] iLangParser.AssignmentContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="iLangParser.function"/>.
+	/// Visit a parse tree produced by <see cref="iLangParser.functionAssignment"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -228,7 +228,7 @@ public partial class iLangBaseVisitor<Result> : AbstractParseTreeVisitor<Result>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitFunction([NotNull] iLangParser.FunctionContext context) { return VisitChildren(context); }
+	public virtual Result VisitFunctionAssignment([NotNull] iLangParser.FunctionAssignmentContext context) { return VisitChildren(context); }
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="iLangParser.functionCall"/>.

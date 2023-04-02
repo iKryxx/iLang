@@ -30,3 +30,5 @@ var programmContext = iLangparser.program();
 var visitor = new iLangVisitor();
 
 visitor.Visit(programmContext);
+
+Console.ReadKey();

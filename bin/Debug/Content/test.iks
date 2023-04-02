@@ -1,4 +1,5 @@
 ﻿i = 14;
+x = 1;
 
 Write("Math Tests: ");
 Write("14+7 = ",14+7);
@@ -18,10 +19,22 @@ until j == 10{
 Write();
 Write("If Tests:");
 if j == 11 xor i == 14{
-	Write("So Bad");
+	Write("False");
 } else if j == 10{
-	Write("So Good");
+	Write("True");
 }
 if j != 1{
- Write("So Good Too");
+ Write("True Too");
 }
+
+Write();
+coolname(suka){
+	Write("Function call Test:");
+	x = suka;
+	Write(x);
+};
+coolname(2);
+
+Write();
+Write("Function Return Test:");
+Write(Random(3.8f,9.2f));
