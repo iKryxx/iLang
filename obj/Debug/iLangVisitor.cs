@@ -217,6 +217,13 @@ public interface IiLangVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitConstant([NotNull] iLangParser.ConstantContext context);
 
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="iLangParser.return"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitReturn([NotNull] iLangParser.ReturnContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="iLangParser.block"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

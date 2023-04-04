@@ -379,6 +379,19 @@ public partial class iLangBaseListener : IiLangListener {
 	public virtual void ExitConstant([NotNull] iLangParser.ConstantContext context) { }
 
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="iLangParser.return"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterReturn([NotNull] iLangParser.ReturnContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="iLangParser.return"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitReturn([NotNull] iLangParser.ReturnContext context) { }
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="iLangParser.block"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>

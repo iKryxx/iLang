@@ -1,4 +1,6 @@
-﻿i = 14;
+﻿
+
+i = 14;
 x = 1;
 
 Write("Math Tests: ");
@@ -28,13 +30,37 @@ if j != 1{
 }
 
 Write();
-coolname(suka){
+coolname(foo, bar){
 	Write("Function call Test:");
-	x = suka;
+	x = foo;
 	Write(x);
 };
-coolname(2);
+
+coolname(arg){
+	if(arg == arg){
+		return arg;
+	}
+	Write("DIFFERENT");
+};
+coolname(2,3);
+
+iteration = 0;
+gcd(a, b){
+	iteration = iteration + 1;
+	Write("iteration:",iteration);
+	if (a == 0){
+		return b;
+	}
+	return gcd(b%a, a);
+};
+
+
 
 Write();
 Write("Function Return Test:");
-Write(Random(3.8f,9.2f));
+Write("RNG: " + Random(3.8f,9.2f));
+Write(coolname(2));
+
+Write();
+Write("Recursive Function Test:");
+Write("gdp 27 9 = ",gcd(27,9));

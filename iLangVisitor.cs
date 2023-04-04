@@ -7,11 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Misc;
+using Antlr4.Runtime.Tree;
 
 namespace Own_Language;
 public class iLangVisitor : iLangBaseVisitor<object?>
 {
     private Dictionary<string, object?> Variables { get; } = new();
+    private iLangFunction currentFunction;
+    object? returnValue;
     private static Dictionary<string, object?> LibFunctions { get; } = new();
 
     public iLangVisitor()
@@ -40,17 +43,38 @@ public class iLangVisitor : iLangBaseVisitor<object?>
         if(func != null) return func(args);
         if (func2 != null)
         {
-            var expr = func2.body.functionExpression().ToArray();
-            if (expr.Length != args.Length) throw new Exception($"'{name}' takes '{expr.Length}' arguments, passed were '{args.Length}'");
+            var body = func2.getContextByArguments(args.Length); if (body == null) return null;
+            var expr = body.functionExpression().ToArray();
+            //if (expr.Length != args.Length) throw new Exception($"'{name}' takes '{expr.Length}' arguments, passed were '{args.Length}'");
             for (int i = 0; i < expr.Length; i++)
             {                
                 Variables[expr[i].IDENTIFIER().GetText()] =args[i];
             }
-        }
-        Visit(func2.body.block());
+            currentFunction = (iLangFunction)Variables[name];
+            Visit(body.block());
+            if (currentFunction != null)
+            {
+                returnValue = currentFunction.returnValue;
+                currentFunction.returnValue = null;
+                currentFunction = null;
+                
+            }
+            return returnValue;
+        }   
         return null;
     }
-
+    public override object VisitLine([NotNull] iLangParser.LineContext context)
+    {
+        if (abort && currentFunction == null) { abort = false; returnValue = null; }
+        if (abort) return null;
+        return base.VisitLine(context);
+    }
+    public override object VisitReturn([NotNull] iLangParser.ReturnContext context)
+    {
+        if(currentFunction != null) currentFunction.returnValue = Visit(context.expression());
+        abort = true;
+        return null;
+    }
     public override object? VisitAssignment(iLangParser.AssignmentContext context)
     {
         // i = 3
@@ -67,7 +91,24 @@ public class iLangVisitor : iLangBaseVisitor<object?>
     {
         var funName = context.IDENTIFIER().GetText();
         object[] funArgs = context.functionExpression().Select(Visit).ToArray();
-        Variables[funName] = new iLangFunction(context);
+
+        if (LibFunctions.ContainsKey(funName)) throw new Exception("Cannot Overload or Override library functions");
+        if (Variables.TryGetValue(funName, out var _func))
+        {
+            iLangFunction func = (iLangFunction) _func;
+            foreach (var f in func.bodies)
+            {
+                if (f.functionExpression().ToArray().Length == funArgs.Length) throw new Exception(funName + " already takes an overload with " + funArgs.Length + " argument(s)");
+            }
+            iLangFunction _ = (iLangFunction)Variables[funName];
+            _.AddContext(context);
+        }
+        else
+        {
+            iLangFunction _ =  new iLangFunction();
+            _.AddContext(context);
+            Variables[funName] = _;
+        }
         return null;
     }
     public override object VisitFunctionExpression([NotNull] iLangParser.FunctionExpressionContext context)
@@ -79,7 +120,7 @@ public class iLangVisitor : iLangBaseVisitor<object?>
     public override object? VisitConstant([NotNull] iLangParser.ConstantContext context)
     {
         //Console.WriteLine(context.GetText());
-        if (context.INTEGER() is { } i) return int.Parse(i.GetText());
+        if (context.INT() is { } i) return int.Parse(i.GetText());
         if (context.FLOAT() is { } f) return float.Parse(f.GetText().Replace("f","").Replace(".",","));
         if (context.STRING() is { } s) return s.GetText().Substring(1, s.GetText().Length - 2);
         if (context.BOOL() is { } b) return bool.Parse(b.GetText());
@@ -265,6 +306,7 @@ public class iLangVisitor : iLangBaseVisitor<object?>
         }
         else
         {
+            if(context.elseIfBlock() != null)
             Visit(context.elseIfBlock());
         }
 
@@ -395,15 +437,32 @@ public class iLangVisitor : iLangBaseVisitor<object?>
     }
     private bool isFalse(object? value) => !isTrue(value);
 
+    public static bool abort;
     
 
     public class iLangFunction
     {
-        public iLangParser.FunctionAssignmentContext body;
-
-        public iLangFunction(iLangParser.FunctionAssignmentContext body)
+        public List<iLangParser.FunctionAssignmentContext> bodies = new List<iLangParser.FunctionAssignmentContext>();
+        public object? returnValue = null;
+        public iLangFunction()
         {
-            this.body = body;
+            this.bodies = new List<iLangParser.FunctionAssignmentContext>();
+        }
+        public void AddContext(iLangParser.FunctionAssignmentContext context)
+        {
+            this.bodies.Add(context);
+        }
+
+        public iLangParser.FunctionAssignmentContext getContextByArguments(int argumentCount)
+        {
+            foreach (iLangParser.FunctionAssignmentContext body in bodies)
+            {
+                if(body.functionExpression().ToArray().Length == argumentCount)
+                {
+                    return body;
+                }
+            }
+            throw new Exception("function doesnt have an Overload containing " + argumentCount + " arguments");
         }
     }
 
@@ -421,22 +480,26 @@ public class iLangVisitor : iLangBaseVisitor<object?>
 
         public static object? Random(object?[] args)
         {
+            int precision = 4;
+
             object min = args[0];
             object max = args[1];
-            int ai =  min.ToString().Contains(",")? int.Parse(min.ToString().Remove(min.ToString().IndexOf(","))) : int.Parse(min.ToString());
-            float af = float.Parse(min.ToString());
-            int bi = max.ToString().Contains(",") ? int.Parse(max.ToString().Remove(max.ToString().IndexOf(","))) : int.Parse(max.ToString());
-            float bf = float.Parse(max.ToString());
-            bool minint; 
+            bool minint;
             bool maxint;
             try
             {
+                int ai =  min.ToString().Contains(",")? int.Parse(min.ToString().Remove(min.ToString().IndexOf(","))) : int.Parse(min.ToString());
+                float af = float.Parse(min.ToString());
+                int bi = max.ToString().Contains(",") ? int.Parse(max.ToString().Remove(max.ToString().IndexOf(","))) : int.Parse(max.ToString());
+                float bf = float.Parse(max.ToString());
+                
+            
                 minint = ai * 10 == (int)(af * 10) ? false : true;
                 maxint = bi * 10 == (int)(bf * 10) ? false : true;
             }
-            catch { throw new Exception($"Cannot execute Function on {max.ToString}"); }
+            catch { throw new Exception($"Cannot execute Function on '{min.ToString()}' and '{max.ToString()}'"); }
             Type target = min.GetType();
-            if (!maxint && maxint) throw new Exception($"Cannot execute Function on {max.ToString}");
+            if (!maxint && maxint) throw new Exception($"Cannot execute Function on {max.ToString()}");
             if (target == typeof(int))
             {
                 System.Random random = new Random();
@@ -444,8 +507,11 @@ public class iLangVisitor : iLangBaseVisitor<object?>
             } else if(target == typeof(float))
             { 
                 Random random = new Random();
-                float res =  random.Next((int)Math.Round((float)min - 0.5f) * 10000, ((int)Math.Round((float)max + 0.5f) + 1) * 10000);
-                return res / 10000;
+
+                int lint = (int)Math.Round((float)min * Math.Pow(10, precision) - 0.5);
+                int rint = (int)Math.Round((float)max * Math.Pow(10, precision) - 0.5);
+                float result = random.Next(lint, rint);
+                return result / Math.Pow(10,precision);
             }
             return 0;
         }      

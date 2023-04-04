@@ -325,6 +325,17 @@ public interface IiLangListener : IParseTreeListener {
 	void ExitConstant([NotNull] iLangParser.ConstantContext context);
 
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="iLangParser.return"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterReturn([NotNull] iLangParser.ReturnContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="iLangParser.return"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitReturn([NotNull] iLangParser.ReturnContext context);
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="iLangParser.block"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
