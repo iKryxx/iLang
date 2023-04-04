@@ -47,7 +47,6 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DynLin.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="iLangVisitor.cs" />
   </ItemGroup>

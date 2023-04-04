@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
+using Own_Language;
 
-namespace Own_Language;
+namespace iKryxxLanguage;
 public class iLangVisitor : iLangBaseVisitor<object?>
 {
     private Dictionary<string, object?> Variables { get; } = new();
